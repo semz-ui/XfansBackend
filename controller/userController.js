@@ -88,6 +88,14 @@ const loginUser = asyncHandler(async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       status: user.status,
+      description: user.body.description,
+      displayName: user.body.displayName,
+      gender: user.body.gender,
+      height: user.body.height,
+      weight: user.body.weight,
+      sexualOrientation: user.body.sexualOrientation,
+      eyesColor: user.body.eyesColor,
+      color: user.body.color,
       token: generateToken(user._id),
     });
   } else {
@@ -100,6 +108,10 @@ const loginUser = asyncHandler(async (req, res) => {
 const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user);
   res.json({ message: "user data" });
+});
+const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await User.find();
+  res.status(200).json(users);
 });
 
 const updateProflie = asyncHandler(async (req, res) => {
@@ -201,4 +213,5 @@ module.exports = {
   updateProflie,
   updateUserProfileImage,
   updateUserBackgroundProfileImage,
+  getAllUsers,
 };

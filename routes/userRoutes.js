@@ -7,6 +7,7 @@ const {
   updateProflie,
   updateUserProfileImage,
   updateUserBackgroundProfileImage,
+  getAllUsers,
 } = require("../controller/userController");
 
 const router = express.Router();
@@ -16,6 +17,7 @@ const { protect } = require("../middleware/authMiddleWare");
 router.post("/", registerUser);
 router.post("/login", loginUser);
 router.get("/me", protect, getMe);
+router.get("/all", getAllUsers);
 router.put("/update/:id", protect, updateProflie);
 
 const storage = multer.diskStorage({
