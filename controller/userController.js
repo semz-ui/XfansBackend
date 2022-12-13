@@ -18,6 +18,16 @@ const registerUser = asyncHandler(async (req, res) => {
     displayName,
     password,
     status,
+    phoneNumber,
+    city,
+    ethnicity,
+    sexualOrientation,
+    description,
+    weight,
+    height,
+    country,
+    gender,
+    zipCode,
   } = req.body;
   if (
     !firstName ||
@@ -49,8 +59,18 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     userName,
     displayName,
+    ethnicity,
+    city,
+    country,
+    description,
+    weight,
+    height,
+    phoneNumber,
+    sexualOrientation,
     password: hashedPassword,
     status,
+    gender,
+    zipCode,
   });
   if (user) {
     res.status(201).json({
@@ -61,6 +81,16 @@ const registerUser = asyncHandler(async (req, res) => {
       userName: user.userName,
       displayName: user.displayName,
       status: user.status,
+      country: user.country,
+      ethnicity: user.ethnicity,
+      sexualOrientation: user.sexualOrientation,
+      phoneNumber: user.phoneNumber,
+      weight: user.weight,
+      height: user.height,
+      description: user.description,
+      city: user.city,
+      gender: user.gender,
+      zipCode: user.zipCode,
       token: generateToken(user._id),
     });
   } else {

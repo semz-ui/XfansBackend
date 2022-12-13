@@ -22,7 +22,19 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    ethnicity: {
+      type: String,
+      required: true,
+    },
     displayName: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    country: {
       type: String,
       required: true,
     },
@@ -67,6 +79,10 @@ const userSchema = mongoose.Schema(
       default: null,
     },
     status: {
+      type: String,
+      required: true,
+    },
+    zipCode: {
       type: String,
       required: true,
     },
