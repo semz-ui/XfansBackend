@@ -45,11 +45,18 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   }
   const userExist = await User.findOne({ email });
+  const userNameExist = await User.findOne({ userName });
   if (userExist) {
     res.status(400).json({
       message: "User exists ",
     });
   }
+
+  // if (userNameExist) {
+  //   res.status(400).json({
+  //     message: "UserName exists ",
+  //   });
+  // }
   // hashedPassword
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -124,14 +131,14 @@ const loginUser = asyncHandler(async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       status: user.status,
-      description: user.body.description,
-      displayName: user.body.displayName,
-      gender: user.body.gender,
-      height: user.body.height,
-      weight: user.body.weight,
-      sexualOrientation: user.body.sexualOrientation,
-      eyesColor: user.body.eyesColor,
-      color: user.body.color,
+      description: user.description,
+      displayName: user.displayName,
+      gender: user.gender,
+      height: user.height,
+      weight: user.weight,
+      sexualOrientation: user.sexualOrientation,
+      eyesColor: user.eyesColor,
+      color: user.color,
       token: generateToken(user._id),
     });
   } else {
