@@ -143,7 +143,7 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404).json({
-      message: "Invalide Credentials",
+      message: "Invalid Credentials",
     });
   }
 });
@@ -226,6 +226,7 @@ const updateUserProfileImage = asyncHandler(async (req, res) => {
   );
   res.status(200).json("Image saved");
 });
+
 const updateUserBackgroundProfileImage = asyncHandler(async (req, res) => {
   const userUpdate = await User.findById(req.params.id);
   const saveImage = await User.findByIdAndUpdate(

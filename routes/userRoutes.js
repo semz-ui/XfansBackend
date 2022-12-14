@@ -33,13 +33,13 @@ const upload = multer({ storage: storage });
 
 router.put(
   "/updateProfileImage/:id",
-  upload.single("testImage"),
+  upload.single("profileImage"),
   protect,
   updateUserProfileImage
 );
 router.put(
   "/updateBackgroundProfileImage/:id",
-  upload.single("testImage"),
+  upload.single("backgroundProfileImage"),
   protect,
   updateUserBackgroundProfileImage
 );
