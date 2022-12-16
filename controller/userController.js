@@ -136,6 +136,8 @@ const loginUser = asyncHandler(async (req, res) => {
       gender: user.gender,
       height: user.height,
       weight: user.weight,
+      profileImage: user.image,
+      backgroundImage: user.backgroundImage,
       sexualOrientation: user.sexualOrientation,
       eyesColor: user.eyesColor,
       color: user.color,
