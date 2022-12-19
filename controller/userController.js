@@ -152,7 +152,6 @@ const loginUser = asyncHandler(async (req, res) => {
 
 const getMe = asyncHandler(async (req, res) => {
   res.status(200).json(req.user);
-  res.json({ message: "user data" });
 });
 const getAllUsers = asyncHandler(async (req, res) => {
   const users = await User.find();
