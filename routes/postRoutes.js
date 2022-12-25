@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/", upload.single("postImage"), protect, postImg);
+router.post("/", upload.array("postImage", 5), protect, postImg);
 router.get("/me", protect, getImg);
 router.get("/all", getAllImgs);
 
