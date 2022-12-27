@@ -6,7 +6,7 @@ const postImg = asyncHandler(async (req, res) => {
   const saveImage = Post({
     user: req.user.id,
     postImage: {
-      data: fs.readFileSync("uploads/" + req.file.filename),
+      data: fs.readFileSync("uploads/" + req.files[0].filename),
       contentType: "image/png or image/jpeg or image/jpg",
     },
   });
